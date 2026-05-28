@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Jiashu Liu - engineering projects, co-op experience, research, resume and course reflection." name="description"/>
+<title>Jiashu Liu | E-Portfolio</title>
+<style>
+    :root {
+      --bg: #f5f8f8;
+      --paper: rgba(255, 255, 255, 0.92);
+      --paper-strong: #ffffff;
+      --ink: #15272b;
+      --muted: #5f7075;
+      --teal: #05969a;
+      --teal-dark: #03767b;
+      --teal-soft: #dff4f2;
+      --amber: #f3a43b;
+      --blue: #1c6f8b;
+      --line: rgba(21, 39, 43, 0.12);
+      --shadow: 0 22px 70px rgba(15, 42, 46, 0.14);
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 5%, rgba(5,150,154,.18), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(243,164,59,.15), transparent 30%),
+        linear-gradient(180deg, #f8fbfb 0%, var(--bg) 36%, #eef5f4 100%);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 12px;
+      padding: 10px 14px;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 10px;
+      z-index: 999;
+    }
+    .skip-link:focus { left: 12px; }
+
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 13px 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+      box-shadow: 0 10px 30px rgba(5,150,154,.25);
+    }
+    nav.links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    nav.links a, .nav-button {
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 650;
+      font-size: 14px;
+      transition: .2s ease;
+    }
+    nav.links a:hover, nav.links a.active, .nav-button:hover {
+      color: var(--teal-dark);
+      background: var(--teal-soft);
+    }
+    .nav-button {
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      background: transparent;
+    }
+
+    main { overflow: hidden; }
+    section { scroll-margin-top: 88px; }
+
+    .hero-wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 22px 36px;
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid rgba(5,150,154,.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,.74);
+      color: var(--teal-dark);
+      font-weight: 760;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 0 6px rgba(243,164,59,.16);
+    }
+    h1 {
+      margin: 20px 0 16px;
+      font-size: clamp(42px, 8vw, 82px);
+      line-height: .95;
+      letter-spacing: -.06em;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, var(--teal-dark), var(--blue) 55%, #20333a);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: #385157;
+      max-width: 650px;
+      margin: 0 0 22px;
+    }
+    .hero-copy {
+      max-width: 670px;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 28px;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 18px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 780;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(15,42,46,.16); }
+    .button.primary { background: linear-gradient(135deg, var(--teal), var(--teal-dark)); color: #fff; border-color: transparent; }
+    .button.secondary { background: #fff; color: var(--teal-dark); }
+    .button.small { min-height: 38px; padding: 8px 13px; font-size: 14px; }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+      max-width: 650px;
+    }
+    .stat {
+      padding: 15px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+    .stat b { display: block; font-size: 20px; color: var(--teal-dark); }
+    .stat span { display: block; color: var(--muted); font-size: 13px; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 540px;
+    }
+    .photo-stack {
+      position: absolute;
+      inset: 0;
+    }
+    .photo-card {
+      position: absolute;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      background: #fff;
+      border: 8px solid rgba(255,255,255,.86);
+    }
+    .photo-card img { width: 100%; height: 100%; object-fit: cover; }
+    .profile-mini img, .profile-photo img { object-position: center top; background: #fff; }
+    .photo-main { width: 72%; height: 78%; right: 0; top: 18px; }
+    .photo-mini { width: 44%; height: 40%; left: 0; bottom: 22px; }
+    .floating-note {
+      position: absolute;
+      left: 9%;
+      top: 64px;
+      padding: 16px 18px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 50px rgba(15,42,46,.13);
+      max-width: 250px;
+    }
+    .floating-note b { display:block; color: var(--teal-dark); margin-bottom: 4px; }
+    .floating-note span { color: var(--muted); font-size: 14px; }
+
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 54px 22px;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(280px, .45fr);
+      gap: 26px;
+      align-items: end;
+      margin-bottom: 26px;
+    }
+    .section-kicker {
+      color: var(--teal-dark);
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 5vw, 48px);
+      letter-spacing: -.045em;
+      line-height: 1.05;
+    }
+    .section-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 52px rgba(15,42,46,.08);
+      overflow: hidden;
+    }
+    .card-body { padding: 22px; }
+    .card h3 { margin: 0 0 8px; font-size: 21px; line-height: 1.2; letter-spacing: -.02em; }
+    .card p { margin: 0 0 14px; color: var(--muted); }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(5,150,154,.09);
+      color: var(--teal-dark);
+      font-weight: 720;
+      font-size: 12px;
+    }
+    .tag.amber { background: rgba(243,164,59,.16); color: #9a5b00; }
+    .tag.blue { background: rgba(28,111,139,.11); color: #245d70; }
+    .source-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .source-note a { color: var(--teal-dark); font-weight: 800; text-decoration: none; }
+    .source-note a:hover { text-decoration: underline; }
+
+    .project-separation-note {
+      margin: -8px 0 24px;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(5,150,154,.12), rgba(28,111,139,.08));
+      border: 1px solid var(--line);
+      display: grid;
+      gap: 6px;
+      box-shadow: var(--shadow-soft);
+    }
+    .project-separation-note b { color: var(--teal-dark); }
+    .project-separation-note span { color: var(--muted); }
+
+    .about-card {
+      display: grid;
+      grid-template-columns: .7fr 1fr;
+      gap: 0;
+      min-height: 390px;
+    }
+    .about-image {
+      min-height: 360px;
+      background: #dbe8e9;
+    }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; }
+    .about-content { padding: 30px; }
+    .about-content p { color: var(--muted); margin-top: 0; }
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 15px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 17px 18px 17px 44px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      left: 18px;
+      top: 24px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(5,150,154,.12);
+    }
+    .timeline-item b { display: block; }
+    .timeline-item span { color: var(--muted); font-size: 14px; }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 66px rgba(15,42,46,.15);
+      border-color: rgba(5,150,154,.35);
+    }
+    .project-image {
+      aspect-ratio: 16 / 10;
+      background: #dfecec;
+      overflow: hidden;
+    }
+    .project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+    .project-card:hover .project-image img { transform: scale(1.05); }
+    .project-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--teal-dark);
+      font-weight: 800;
+      margin-top: auto;
+    }
+    .detail-panel {
+      margin-top: 22px;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(223,244,242,.66));
+      border: 1px solid rgba(5,150,154,.18);
+    }
+    .detail-panel h3 { margin: 0 0 12px; font-size: 26px; }
+    .detail-panel ul { margin: 12px 0 0; padding-left: 22px; color: var(--muted); }
+    .detail-panel li { margin: 8px 0; }
+
+
+
+    .tech-notes {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0 10px;
+    }
+    .tech-note {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.72);
+    }
+    .tech-note b {
+      display: block;
+      color: var(--teal-dark);
+      margin-bottom: 6px;
+    }
+    .tech-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    @media (max-width: 760px) { .tech-notes { grid-template-columns: 1fr; } }
+
+    .compact-note {
+      margin-top: 18px;
+      padding: 18px;
+      background: rgba(255,255,255,.82);
+    }
+    .compact-note .note-layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+    .compact-note img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .compact-note h3 { font-size: 22px; }
+    .compact-note p { margin: 0 0 8px; color: var(--muted); }
+    .compact-note ul { margin: 8px 0 0; }
+
+    .skill-card { padding: 22px; }
+    .skill-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(5,150,154,.14), rgba(28,111,139,.13));
+      color: var(--teal-dark);
+      font-size: 22px;
+      margin-bottom: 14px;
+    }
+
+    .resume-shell {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .resume-preview {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .resume-preview img {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: 0 12px 35px rgba(15,42,46,.12);
+      background: #fff;
+    }
+    .pdf-frame {
+      width: 100%;
+      min-height: 700px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #fff;
+    }
+
+    .reflection-layout {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 20px;
+    }
+    .reflection-quote {
+      padding: 28px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(135deg, var(--teal-dark), var(--blue));
+      color: #fff;
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+    }
+    .reflection-quote::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -120px auto;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.13);
+    }
+    .reflection-quote p { margin: 0; font-size: 25px; line-height: 1.28; font-weight: 760; letter-spacing: -.025em; }
+    .reflection-quote span { margin-top: 28px; opacity: .82; font-weight: 700; }
+    .reflection-list { display: grid; gap: 14px; }
+    .reflection-item {
+      padding: 19px 20px;
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+    .reflection-item b { display: block; margin-bottom: 5px; }
+    .reflection-item p { margin: 0; color: var(--muted); }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 14px;
+    }
+    .gallery figure {
+      margin: 0;
+      position: relative;
+      min-height: 250px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.7);
+      box-shadow: 0 16px 45px rgba(15,42,46,.12);
+      background: #dbe8e9;
+      cursor: zoom-in;
+    }
+    .gallery figure.large { grid-row: span 2; min-height: 520px; }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; transition: transform .35s ease; }
+    .gallery figure:hover img { transform: scale(1.045); }
+    figcaption {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: rgba(21,39,43,.75);
+      color: #fff;
+      font-size: 13px;
+      backdrop-filter: blur(9px);
+    }
+
+    .blog-list { display: grid; gap: 16px; }
+    .blog-card {
+      display: grid;
+      grid-template-columns: minmax(140px, .25fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      padding: 18px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .blog-card:hover { transform: translateY(-3px); box-shadow: 0 20px 50px rgba(15,42,46,.13); }
+    .blog-date {
+      padding: 18px;
+      min-height: 118px;
+      border-radius: var(--radius-md);
+      background: var(--teal-soft);
+      color: var(--teal-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: 850;
+    }
+    .blog-date span { color: var(--muted); font-size: 13px; font-weight: 720; }
+    .blog-card h3 { margin: 0 0 5px; }
+    .blog-card p { margin: 0; color: var(--muted); }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(223,244,242,.7));
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(5,150,154,.18);
+      overflow: hidden;
+    }
+    .contact-visual { min-height: 300px; }
+    .contact-visual img { width: 100%; height: 100%; object-fit: cover; }
+    .contact-content { padding: 30px; }
+    .contact-list { display: grid; gap: 10px; margin: 20px 0; }
+    .contact-list a, .contact-list div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .checklist { margin-top: 22px; color: var(--muted); }
+    .checklist li { margin: 7px 0; }
+
+    footer {
+      margin-top: 30px;
+      padding: 35px 22px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,.55);
+    }
+
+    dialog#lightbox {
+      border: 0;
+      padding: 0;
+      border-radius: 20px;
+      background: transparent;
+      max-width: min(1100px, 92vw);
+      width: fit-content;
+      box-shadow: 0 28px 80px rgba(0,0,0,.35);
+    }
+    dialog#lightbox::backdrop { background: rgba(4, 21, 24, .72); backdrop-filter: blur(7px); }
+    .lightbox-content { position: relative; background: #fff; border-radius: 20px; overflow: hidden; }
+    .lightbox-content img { max-height: 82vh; width: auto; max-width: 92vw; object-fit: contain; background: #fff; }
+    .lightbox-close {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      border: 0;
+      background: rgba(21,39,43,.82);
+      color: #fff;
+      border-radius: 999px;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #081416;
+      --paper: rgba(15, 30, 33, .92);
+      --paper-strong: #0d1c20;
+      --ink: #ebfbfb;
+      --muted: #abc3c7;
+      --teal-soft: rgba(5,150,154,.18);
+      --line: rgba(235,251,251,.12);
+      background:
+        radial-gradient(circle at 8% 5%, rgba(5,150,154,.22), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(243,164,59,.12), transparent 30%),
+        linear-gradient(180deg, #071315 0%, var(--bg) 60%, #071012 100%);
+    }
+    [data-theme="dark"] header.site-header { background: rgba(8,20,22,.76); }
+    [data-theme="dark"] .button.secondary, [data-theme="dark"] .stat, [data-theme="dark"] .timeline-item, [data-theme="dark"] .contact-list a, [data-theme="dark"] .contact-list div { background: rgba(255,255,255,.06); }
+    [data-theme="dark"] .pdf-frame { background: #e7eeee; }
+
+    @media (max-width: 980px) {
+      .hero-wrap, .section-head, .about-card, .resume-shell, .reflection-layout, .contact-card { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 470px; }
+      .grid-3, .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .gallery figure.large { grid-row: span 1; min-height: 330px; }
+      .pdf-frame { min-height: 600px; }
+    }
+    @media (max-width: 720px) {
+      .nav { align-items: flex-start; flex-direction: column; }
+      nav.links { justify-content: flex-start; }
+      .hero-wrap { padding-top: 38px; }
+      .hero-stats, .grid-2, .grid-3, .grid-4, .resume-preview, .gallery, .blog-card, .compact-note .note-layout { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 405px; }
+      .photo-main { width: 82%; height: 72%; }
+      .photo-mini { width: 54%; height: 33%; }
+      .floating-note { left: 0; top: 20px; max-width: 220px; }
+      .section-inner { padding: 42px 18px; }
+      .card-body, .about-content, .contact-content { padding: 20px; }
+      .pdf-frame { min-height: 520px; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+<div aria-label="Main navigation" class="nav">
+<a aria-label="Back to top" class="brand" href="#home">
+<span class="brand-mark">JL</span>
+<span>Jiashu Liu</span>
+</a>
+<nav class="links">
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#internship">Co-op</a>
+<a href="#resume">Resume</a>
+<a href="#reflection">Reflection</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+<button aria-label="Toggle color theme" class="nav-button" id="themeToggle" type="button">Theme</button>
+</nav>
+</div>
+</header>
+<main id="main">
+<section class="hero-wrap" id="home">
+<div>
+<span class="eyebrow"><span class="dot"></span>Jiashu Liu</span>
+<h1><span class="gradient-text">Engineering that works</span><br/>from bench to production.</h1>
+<p class="hero-subtitle">Electrical Engineering &amp; Automation student at Chongqing University, focused on embedded systems, industrial automation, robotics and IoT integration.</p>
+<div class="cta-row">
+<a class="button primary" href="#projects">Explore my work →</a>
+<a class="button secondary" href="files/Jiashu_Liu_Resume.pdf" rel="noopener" target="_blank">Open resume</a>
+<a class="button secondary" href="#reflection">Course reflection</a>
+</div>
+<div aria-label="Portfolio highlights" class="hero-stats">
+<div class="stat"><b>1050+</b><span>trial units with 0 failures for small valve heads</span></div>
+<div class="stat"><b>95.4%</b><span>large valve-head trial success rate after improvement</span></div>
+<div class="stat"><b>1 hr</b><span>target time for reusing IoT access template</span></div>
+</div>
+</div>
+<div aria-label="Engineering photos" class="hero-visual">
+<div class="photo-stack">
+<div class="photo-card photo-main"><img alt="A robotic arm used for oil injection process debugging during Siemens internship" src="assets/siemens_oil_robot_2025.jpg"/></div>
+<div class="photo-card photo-mini profile-mini"><img alt="Profile photo of Jiashu Liu" src="assets/profile_photo.jpg"/></div>
+<div class="floating-note"><b>Focus</b><span>Embedded control · Robot stations · Hardware debugging · Engineering documentation</span></div>
+</div>
+</div>
+</section>
+<section id="about">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Profile</div>
+<h2>About me</h2>
+</div>
+<p class="section-summary">I connect classroom learning with real engineering practice: building prototypes, debugging production equipment and translating one-time fixes into reusable procedures.</p>
+</div>
+<div class="card about-card">
+<div class="about-image profile-photo"><img alt="Profile photo of Jiashu Liu" src="assets/profile_photo.jpg"/></div>
+<div class="about-content">
+<h3>Jiashu Liu</h3>
+<p>I am studying Electrical Engineering and Automation at Chongqing University–University of Cincinnati Joint Co-op Institute, with an expected Bachelor of Engineering graduation date in June 2027.</p>
+<p>My strongest interests are embedded systems, automation equipment, motor-control-related IoT access and robotics. I enjoy moving from unclear field problems to testable causes, reliable fixes and clear documentation.</p>
+<div class="grid-2">
+<div class="timeline-item"><b>Education</b><span>Chongqing University, Electrical Engineering &amp; Automation, 2022–2027</span></div>
+<div class="timeline-item"><b>Career direction</b><span>Industrial automation, embedded systems and reliable IoT solutions</span></div>
+<div class="timeline-item"><b>Work style</b><span>Problem decomposition, hands-on validation and closed-loop delivery</span></div>
+<div class="timeline-item"><b>Portfolio role</b><span>Resume, co-op records and project notes</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="skills">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Capabilities</div>
+<h2>Skills shown through practice</h2>
+</div>
+</div>
+<div class="grid-4">
+<div class="card skill-card"><div class="skill-icon">⌁</div><h3>Embedded &amp; IoT</h3><p>STM32 / Tuya SDK adaptation, UART communication-chain validation, 2024 C51 coursework practice, and separate 2025 competition practice with Infineon TRAVEO and NXP RT1021 MicroPython platforms.</p></div>
+<div class="card skill-card"><div class="skill-icon">⚙</div><h3>Hardware debugging</h3><p>PCB bring-up, ESC main-control/current-board debugging, phototube-module soldering, oscilloscope-based diagnosis and stability optimization.</p></div>
+<div class="card skill-card"><div class="skill-icon">🤖</div><h3>Automation &amp; robotics</h3><p>Robot workflow design, production-line changeover, point calibration, IO/register use and equipment commissioning.</p></div>
+<div class="card skill-card"><div class="skill-icon">✓</div><h3>Engineering delivery</h3><p>Requirement breakdown, test evidence, WI writing, operator training and knowledge transfer to production teams.</p></div>
+</div>
+</div>
+</section>
+<section id="projects">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Projects</div>
+<h2>Selected engineering projects</h2>
+</div>
+</div>
+<div class="project-separation-note"><b>Project separation</b><span><b>2024.01–2024.04</b>: C51 / STC89C52RC line-tracking and obstacle-avoidance coursework. <b>2025</b>: 20th Smart Car Competition work on micro-photoelectric and speed-photoelectric groups. They are two different projects, with different timelines, platforms and evidence.</span></div>
+<div class="grid-2">
+<a class="card project-card" href="#iot-project">
+<div class="project-image"><img alt="Robotic station and soldering-related automation setup" src="assets/siemens_solder_robot_2024.jpg"/></div>
+<div class="card-body">
+<div class="project-meta"><span>2025.09–2025.12</span><span>Embedded IoT</span></div>
+<h3>Standardized IoT access for motor control systems</h3>
+<p>Built a low-cost, reusable wireless debugging and IoT access solution for laboratory motor-control equipment.</p>
+<span class="arrow-link">Read detail →</span>
+</div>
+</a>
+<a class="card project-card" href="#smartcar-project">
+<div class="project-image"><img alt="Micro photoelectric smart car prototype on a desk" src="assets/smartcar_micro.jpg"/></div>
+<div class="card-body">
+<div class="project-meta"><span>2025</span><span>20th Smart Car Competition</span></div>
+<h3>2025 Smart Car Competition: TRAVEO, RT1021 and ESC boards</h3>
+<p>Worked on the 2025 micro-photoelectric and speed-photoelectric competition cars: ESC boards, vehicle-model design, phototube module and RT1021 MicroPython programming.</p>
+<span class="arrow-link">Read detail →</span>
+</div>
+</a>
+</div>
+<article class="detail-panel" id="iot-project">
+<h3>01 · Standardized IoT access solution for motor control systems</h3>
+<p>This project aimed to make laboratory motor-control equipment easier to debug and connect. I worked as the main embedded and IoT developer, covering cloud configuration, mobile app access, Bluetooth/Wi-Fi module adaptation and STM32-side communication.</p>
+<ul>
+<li>Created Tuya WBR3 cloud PID and DP function models, then connected the App–cloud–module–MCU communication chain.</li>
+<li>Iterated the solution into a BT7L-IPEX Bluetooth approach for industrial scenes without router access.</li>
+<li>Used an oscilloscope to identify USB-to-TTL power ripple causing Bluetooth disconnection and serial checksum errors; reduced 3.3 V ripple from about 150 mV to within 30 mV.</li>
+<li>Refactored Tuya MCU SDK with HAL Adapter, <code>tuya_port.c</code>, <code>tuya_app.c</code>, UART_IDLE interrupts, ring buffers and an event-driven DP model.</li>
+<li>Produced a reusable Keil template and README so a new device can be connected in about one hour.</li>
+</ul>
+<div class="tag-row"><span class="tag">STM32</span><span class="tag">Tuya SDK</span><span class="tag">UART_IDLE</span><span class="tag">Bluetooth/Wi‑Fi</span><span class="tag amber">Reusable template</span></div>
+</article>
+<article class="detail-panel" id="smartcar-project">
+<h3>02 · 2025 Smart Car Competition: micro-photoelectric + speed-photoelectric</h3>
+<p>For the 2025 Chongqing University smart car competition selection, I worked on two groups: micro-photoelectric and speed-photoelectric. The two groups used different chip ecosystems and different debugging methods.</p>
+<div aria-label="Smart car platforms" class="tech-notes">
+<div class="tech-note">
+<b>Micro-photoelectric group</b>
+<p>Micro-photoelectric group: Infineon TRAVEO platform. My work focused on ESC main-control/current boards, vehicle-model design, mainboard work, and the phototube module.</p>
+</div>
+<div class="tech-note">
+<b>Speed-photoelectric group · NXP MicroPython track</b>
+<p>Speed-photoelectric group: NXP RT1021 MicroPython platform. My work focused on MicroPython control logic, track testing, vehicle-state handling, and speed/steering response.</p>
+</div>
+</div>
+<ul>
+<li>Completed ESC-related PCB work, including the ESC main-control board and ESC current board, plus vehicle-model design for the two cars.</li>
+<li>Designed, produced and soldered the micro-photoelectric phototube module, then supported hardware debugging so the vehicle could move from PCB layout to track testing.</li>
+<li>Independently wrote the MicroPython program for the speed-photoelectric group on the NXP RT1021 platform, focusing on line/element response, vehicle-state handling and speed/steering control logic.</li>
+<li>The team won first prize in the school competition and was selected for the western regional competition.</li>
+</ul>
+<div class="tag-row"><span class="tag">2025 competition</span><span class="tag">Infineon TRAVEO</span><span class="tag">CYT4BB7 / CYT2BL3</span><span class="tag">NXP RT1021</span><span class="tag">MicroPython</span><span class="tag">ESC PCB</span><span class="tag">Phototube module</span><span class="tag amber">First prize</span></div>
+</article>
+<article class="detail-panel compact-note" id="linecar-project">
+<div class="note-layout">
+<img alt="Representative C51-style smart-car kit reference image" src="assets/c51_reference_smartcar.jpg"/>
+<div>
+<h3>03 · 2024.01–2024.04 · C51 line-tracking / obstacle-avoidance coursework</h3>
+<ul>
+<li>Led a 4-person STC89C52RC / C51 prototype and handled the infrared remote-control module.</li>
+<li>Used Keil C51 and Proteus, then solved a line-tracking integration issue through state flags and main-loop scheduling.</li>
+</ul>
+<div class="tag-row"><span class="tag">2024 coursework</span><span class="tag">STC89C52RC / C51</span><span class="tag">Keil / Proteus</span><span class="tag">IR remote</span></div>
+</div>
+</div>
+</article>
+</div>
+</section>
+<section id="internship">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Co-op / Internship</div>
+<h2>Siemens Cerberus automation practice</h2>
+</div>
+<p class="section-summary">Two internship periods at Beijing Siemens Cerberus Electronics Limited helped me understand how automation engineering must support stability, production rhythm and operator usability.</p>
+</div>
+<div class="grid-2">
+<div class="card">
+<div class="project-image"><img alt="Automation station with robotic arm and solder-related process" src="assets/siemens_solder_robot_2024.jpg"/></div>
+<div class="card-body">
+<div class="project-meta"><span>2024.05–2024.08</span><span>Automation Engineering Intern</span></div>
+<h3>AD40i / QFM2 and TEVA robot-station support</h3>
+<p>Participated in equipment maintenance and program debugging for AD40i and QFM2 semi-automatic soldering machines, including S-board soldering program writing and point calibration.</p>
+<p>Joined the TEVA small-part robot station build from gripper selection and wiring to program writing, helping move the equipment into trial production.</p>
+</div>
+</div>
+<div class="card">
+<div class="project-image"><img alt="Oil injection robot station with test fixtures and parts" src="assets/siemens_oil_robot_2025.jpg"/></div>
+<div class="card-body">
+<div class="project-meta"><span>2025.01–2025.04</span><span>Automation Engineering Intern</span></div>
+<h3>Oil-injection robot programming and production handover</h3>
+<p>Learned TCP communication, IO, registers, cylinder control and point setting; wrote and optimized the oil-injection robot program and verified it through aging tests.</p>
+<p>After adding a quantitative valve and limit structure, small-valve production reached 1050 units with 0 failures; large-valve trial success reached about 95.4%. I also wrote WI documents and trained production-line staff.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="research">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Research &amp; Awards</div>
+<h2>Academic direction and recognition</h2>
+</div>
+<p class="section-summary">My research interest connects sensor systems, multi-modal data fusion and edge intelligence, while my competition experience strengthens practical design and teamwork.</p>
+</div>
+<div class="grid-2">
+<div class="card card-body">
+<h3>Sensor-Centric Perception for Unmanned Surface Vehicles</h3>
+<p><b>Status:</b> Submitted; first author.</p>
+<p>Review topic: perception systems for unmanned surface vehicles, with a focus on datasets, multi-modal sensor fusion and edge intelligence.</p>
+<div class="tag-row"><span class="tag">USV perception</span><span class="tag">Multi-modal fusion</span><span class="tag">Edge intelligence</span><span class="tag blue">First author</span></div>
+</div>
+<div class="card card-body">
+<h3>Awards</h3>
+<p><b>2025</b> · First Prize, Chongqing University Smart Car Competition.</p>
+<p><b>2024</b> · Second Prize, Chongqing University Mathematical Contest in Modeling / MCM-related competition.</p>
+<div class="tag-row"><span class="tag amber">Competition</span><span class="tag">Teamwork</span><span class="tag">Modeling</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="resume">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Resume</div>
+<h2>Resume</h2>
+</div>
+</div>
+<div class="resume-shell">
+<div class="card card-body">
+<h3>Resume preview</h3>
+<div aria-label="Resume page preview images" class="resume-preview">
+<img alt="Resume page 1 preview" src="assets/resume_page-1.jpg"/>
+
+</div>
+<div class="cta-row">
+<a class="button primary" href="files/Jiashu_Liu_Resume.pdf" rel="noopener" target="_blank">Open full PDF</a>
+<a class="button secondary" download="" href="files/Jiashu_Liu_Resume.pdf">Download PDF</a>
+</div>
+</div>
+<div class="card card-body">
+<h3>Resume PDF</h3>
+<iframe class="pdf-frame" src="files/Jiashu_Liu_Resume.pdf#view=FitH" title="Jiashu Liu resume PDF"></iframe>
+</div>
+</div>
+</div>
+</section>
+<section id="reflection">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Course Reflection</div>
+<h2>Career direction and co-op learning</h2>
+</div>
+<p class="section-summary">Career planning, self-assessment, co-op reflection and engineering ethics helped me connect coursework with my next internship choices.</p>
+</div>
+<div class="reflection-layout">
+<div class="reflection-quote">
+<p>Good engineering is not only making a system move; it is making the system stable, explainable and useful for the people who operate it.</p>
+<span>— My co-op reflection</span>
+</div>
+<div class="reflection-list">
+<div class="reflection-item"><b>Career path planning</b><p>My current direction is embedded systems and industrial automation. The Siemens co-op showed me that the most valuable engineers can bridge software, hardware, mechanics and production communication.</p></div>
+<div class="reflection-item"><b>Teamwork and diversity</b><p>In both smart-car and lab projects, progress depended on clear task division, frequent integration and respectful communication when different ideas appeared.</p></div>
+<div class="reflection-item"><b>Ethical and professional issues</b><p>Automation projects affect safety and production quality. I should not hide unstable assumptions; I should document risks, test evidence and operating limits before handover.</p></div>
+<div class="reflection-item"><b>Engineers and society</b><p>Reliable automation can reduce repetitive work, prevent human error and improve product consistency. The social value comes when the technology is safe, maintainable and understandable.</p></div>
+<div class="reflection-item"><b>Future courses and co-op opportunities</b><p>I plan to strengthen motor control, embedded systems, robotics, signal processing and industrial communication, and seek co-op roles where I can build deployable automation or IoT systems.</p></div>
+</div>
+</div>
+</div>
+</section>
+<section id="blog">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Learning Notes</div>
+<h2>Short posts from my learning journey</h2>
+</div>
+</div>
+<div class="blog-list">
+<a class="card blog-card" href="#smartcar-project"><div class="blog-date">2025<span>Competition</span></div><div><h3>TRAVEO hardware + RT1021 MicroPython</h3><p>This is the separate 2025 competition work: ESC/current-board layout, phototube hardware, soldering/debugging and Python-based control on the NXP MicroPython track.</p></div></a>
+<a class="card blog-card" href="#internship"><div class="blog-date">2025<span>Co-op</span></div><div><h3>Why documentation is part of engineering</h3><p>Writing WI documents and training operators turned a personal debugging result into a repeatable production process.</p></div></a>
+<a class="card blog-card" href="#iot-project"><div class="blog-date">2025<span>IoT</span></div><div><h3>Cloud access is useful, but local stability matters</h3><p>The motor-control IoT project made me think about real field conditions: no router, unstable power, and the need for a robust fallback path.</p></div></a>
+<a class="card blog-card" href="#reflection"><div class="blog-date">Course<span>Reflection</span></div><div><h3>My five-step career planning takeaway</h3><p>Self-assessment, exploration, goal setting, action and review helped me connect class discussion with concrete co-op choices.</p></div></a>
+</div>
+</div>
+</section>
+<section id="gallery">
+<div class="section-inner">
+<div class="section-head">
+<div>
+<div class="section-kicker">Gallery</div>
+<h2>Photo records</h2>
+</div>
+</div>
+<div aria-label="Portfolio image gallery" class="gallery">
+<figure class="large"><img alt="Oil-injection robot station in debugging" class="clickable-photo" src="assets/siemens_oil_robot_2025.jpg"/><figcaption>Siemens internship · oil-injection robot station debugging</figcaption></figure>
+<figure><img alt="Smart car ESC main-control PCB layout in Infineon TRAVEO competition context" class="clickable-photo" src="assets/pcb_esc_main_control_board.png"/><figcaption>2025 Smart Car Competition · ESC main-control board / TRAVEO context</figcaption></figure>
+<figure><img alt="ESC current-board PCB layout" class="clickable-photo" src="assets/pcb_esc_current_board.png"/><figcaption>2025 Smart Car Competition · ESC current board</figcaption></figure>
+<figure><img alt="Competition manual for the 20th national undergraduate smart car western regional competition" class="clickable-photo" src="assets/smartcar_competition_manual.jpg"/><figcaption>Competition evidence · western regional manual</figcaption></figure>
+<figure><img alt="A bird and its reflection on water" class="clickable-photo" src="assets/bird_reflection.jpg"/><figcaption>Birdwatching &amp; natural history · field observation</figcaption></figure>
+</div>
+</div>
+</section>
+<section id="contact">
+<div class="section-inner">
+<div class="contact-card">
+<div class="contact-visual"><img alt="City skyline and patterned clouds" src="assets/sky_chongqing_2024.jpg"/></div>
+<div class="contact-content">
+<h2>Contact</h2>
+<p>Jiashu Liu · Electrical Engineering and Automation · Chongqing University</p>
+<div class="contact-list">
+<a href="mailto:Kim_liujs@foxmail.com">✉ Email: Kim_liujs@foxmail.com</a>
+<a href="files/Jiashu_Liu_Resume.pdf" rel="noopener" target="_blank">📄 Resume PDF</a>
+<div>📍 Beijing / Chongqing, China</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<p>© <span id="year"></span> Jiashu Liu · E-Portfolio</p>
+</footer>
+<dialog aria-label="Enlarged portfolio image" id="lightbox">
+<div class="lightbox-content">
+<button aria-label="Close image" class="lightbox-close" type="button">×</button>
+<img alt="" id="lightboxImg" src=""/>
+</div>
+</dialog>
+<script>
+    const links = [...document.querySelectorAll('nav.links a')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const setActive = () => {
+      const current = sections.reduce((acc, section) => {
+        const top = section.getBoundingClientRect().top;
+        return top < 140 ? section.id : acc;
+      }, 'home');
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    document.addEventListener('scroll', setActive, { passive: true });
+    setActive();
+
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : 'dark';
+      if (next) {
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('portfolio-theme', next);
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.removeItem('portfolio-theme');
+      }
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const dialog = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.clickable-photo').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+      });
+    });
+    document.querySelector('.lightbox-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  </script>
+</body>
+</html>
